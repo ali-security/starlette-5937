@@ -3,7 +3,7 @@ name: Test Suite
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", 'master']
   pull_request:
     branches: ["main"]
 
@@ -12,7 +12,7 @@ env:
 jobs:
   tests:
     name: "Python ${{ matrix.python-version }}"
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
 
     strategy:
       matrix:
@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - uses: "actions/checkout@v4"
-      - uses: "actions/setup-python@v5"
+      - uses: "MatteoH2O1999/setup-python@v4"
         with:
           python-version: "${{ matrix.python-version }}"
           allow-prereleases: true
